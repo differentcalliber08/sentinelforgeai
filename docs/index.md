@@ -1,6 +1,6 @@
 # SentinelForgeAI Research Paper
 
-📄 [Download Full PDF](./SentinelForgeAI_Research_Paper.pdf)
+📄 [Download Full PDF](SentinelForgeAI_Research_Paper.pdf)
 
 ---
 
