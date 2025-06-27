@@ -241,6 +241,46 @@ What begins as a lightweight prototype — transforming natural language into ve
 
 In a world where software has been democratized through frameworks and APIs, SentinelForgeAI aims to do the same for silicon — by turning chip design into a programmatic, iterative, and AI-assisted process. This work marks the beginning of a new paradigm: infrastructure-aware, security-conscious, India-first chip development, made possible by the convergence of open source, cloud computing, and large-scale generative intelligence.
 
+## Security & Reliability Considerations
+
+SentinelForgeAI is designed with early-stage safety, privacy, and reliability controls:
+
+- **No Sensitive Data Storage**: All prompts and Verilog outputs are ephemeral unless explicitly saved by the user.
+- **API Key Isolation**: OpenAI keys are stored locally using `.env` files and never transmitted or logged.
+- **Safe Prompt Handling**: Inputs are sanitized to reduce hallucinated code, unsafe synthesis patterns, or shell injection risk.
+- **Error Recovery Loops**: The agent loop ensures that failed Verilog does not proceed into simulation or export stages.
+- **Modular Fallbacks**: Future deployments can swap OpenAI with private models to avoid dependency lock-in.
+
+## Sample Prompt + Output Flow
+
+To demonstrate usability, here’s a real prompt and output captured via SentinelForgeAI’s first-pass flow.
+
+### Prompt:
+> Design a 4-bit ripple carry adder with two inputs A, B and a carry-in.
+
+### LLM-Generated Verilog:
+```verilog
+module ripple_adder (
+    input [3:0] A,
+    input [3:0] B,
+    input Cin,
+    output [3:0] Sum,
+    output Cout
+);
+    assign {Cout, Sum} = A + B + Cin;
+endmodule
+
+**
+### Simulation Output:
+
+Yosys: 0 errors, 1 warning
+Warning: Unconnected output ‘Cout’ at line 9
+
+### Review Agent Suggestion:
+
+> Consider connecting ‘Cout’ to an output port or internal wire to reflect carry-out.
+
+
 ## References
 
 [1] Zhao, Zihao et al. "AIVRIL: AI-Driven RTL Generation With Verification-in-the-Loop." arXiv preprint arXiv:2403.07687 (2024).  
