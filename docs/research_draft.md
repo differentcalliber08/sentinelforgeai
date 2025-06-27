@@ -73,7 +73,7 @@ At its core, the platform is structured around three intelligent agents operatin
 ### Diagram (Conceptual)
 
 <p align="center">
-  <img src="/docs/sentinelforgeai-architecture.png.png" width="800" alt="SentinelForgeAI RTL Architecture Diagram">
+  <img src="/docs/architecture_flow.png.png" width="800" alt="SentinelForgeAI RTL Architecture Diagram">
 </p>
 
 
